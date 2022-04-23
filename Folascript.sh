@@ -33,5 +33,5 @@ apt-get install xrdp -y
 printf "${YELOW}Installing qbittorrent\n${NC}"
 sleep 5
 apt-get install qbittorrent
-printf "${YELOW}ALL APPLICATION HAS BEEN INSTALLED  YOU CAN CLOSE THE SCREEN @ Fola !!!!!\n${NC}"
+printf "${YELOW}ALL APPLICATION HAS BEEN INSTALLED  YOU CAN CLOSE THE SCREEN @ Fola | copyright 2022 \n${NC}"
 
