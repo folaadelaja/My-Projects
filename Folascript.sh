@@ -74,6 +74,14 @@ apt install chromium-browser -y
 printf "${YELOW}Installing Ansible latest....\n${NC}"
 sleep 5
 apt install ansible -y
+#Install Brave browser
+printf "${YELOW}Installing Brave browser....\n${NC}"
+sleep 5
+sudo apt install apt-transport-https curl
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update
+sudo apt install brave-browser
 printf "${YELOW}ALL APPLICATION HAS BEEN INSTALLED  
 YOU CAN CLOSE THE SCREEN @ Fola | copyright 2022 \n${NC}"
 
