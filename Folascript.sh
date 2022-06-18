@@ -82,6 +82,8 @@ sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://b
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
 sudo apt install brave-browser -y
+printf "${YELOW}Installing Uget downloader accelerator....\n${NC}"
+sudo apt install uget -y
 printf "${YELOW}ALL APPLICATION HAS BEEN INSTALLED  
 YOU CAN CLOSE THE SCREEN @ Fola | copyright 2022 \n${NC}"
 
