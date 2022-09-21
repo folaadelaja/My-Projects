@@ -84,6 +84,6 @@ sudo apt update
 sudo apt install brave-browser -y
 printf "${YELOW}Installing Uget downloader accelerator....\n${NC}"
 sudo apt install uget -y
-printf "${YELOW}ALL APPLICATION HAS BEEN INSTALLED  
+printf "${YELOW}ALL APPLICATION HAS BEEN INSTALLED THANK YOU ...... 
 YOU CAN CLOSE THE SCREEN @ Fola | copyright 2022 \n${NC}"
 
