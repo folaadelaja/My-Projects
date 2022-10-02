@@ -1,0 +1,6 @@
+#install docker debian
+sudo apt-get remove docker docker-engine docker.io
+sudo apt-get update
+sudo apt install docker.io -y
+sudo apt install snap -y
+sudo snap install docker
