@@ -1,4 +1,4 @@
-# alex
+# Fola
 #This is just a simple script I created to install my custom applications on a fresh install ubuntu linux
 #Apps are
 #qbttorent
