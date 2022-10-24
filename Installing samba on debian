@@ -78,3 +78,11 @@ Change ownership/permissions:
 
 sudo chown -R smbuser:smbgroup /share
 sudo chmod -R g+w /share
+#Start samba
+sudo systemctl start smbd
+
+#Allow firewall rule
+$ sudo ufw allow 139
+$ sudo ufw allow 445
+
+$ sufo ufw status
