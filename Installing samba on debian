@@ -1,11 +1,11 @@
-Install Samba
+#Install Samba
 
 sudo apt update
 sudo apt install samba
 
-Stop Samba daemon
+#Stop Samba daemon
 
-Check if it’s running:
+#Check if it’s running:
 
 sudo systemctl status smbd
 
@@ -19,7 +19,7 @@ sudo mv /etc/samba/smb.conf
 
 Create new Samba config file
 
-sudo vim /etc/samba/smb.conf
+sudo nano /etc/samba/smb.conf
 
 New file (change the items in bold accordingly):
 
@@ -33,7 +33,7 @@ include = /etc/samba/shares.conf
 
 Create Samba shares config file
 
-sudo vim /etc/samba/shares.conf
+sudo nano /etc/samba/shares.conf
 
 New file (change the items in bold accordingly):
 
