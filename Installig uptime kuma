@@ -1,0 +1,28 @@
+Running the container
+
+If you’re using Docker compose
+
+mkdir uptime-kuma
+cd uptime-kuma
+touch docker-compose.yml
+nano docker-compose.yml # copy the contents from below
+mkdir data
+ls
+docker-compose up -d --force-recreate
+
+docker-compose.yml
+
+---
+version: "3.1"
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    volumes:
+      - /home/serveradmin/docker_volumes/uptime-kuma/data:/app/data
+    ports:
+      - 3001:3001
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
