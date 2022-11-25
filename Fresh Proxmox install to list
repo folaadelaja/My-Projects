@@ -1,0 +1,45 @@
+#Installing proxmox on home LAB to do list
+STEP 1 - Download Proxmox and prep the USB Flash Drive
+
+Proxmox: https://proxmox.com/en/downloads
+
+Rufus: https://rufus.ie/en_US/
+
+
+Step 2 - Install Proxmox
+
+
+Step 3 - Increase Storage
+
+1. Delete the local-lvm directory
+
+2. Delete local-lvm from CLI:
+
+lvremove /dev/pve/data
+
+3. Reallocate the space
+
+lvresize -l +100%FREE /dev/pve/root
+resize2fs /dev/mapper/pve-root
+
+Step 4 - Virtual Machines!!
+Virtual Machine ISOs:
+#Download and upload virtio driver for windows vm
+https://pve.proxmox.com/wiki/Windows_VirtIO_Drivers
+
+#UPDATE PROXMOX
+apt-get update
+
+#UPDATE CONTAINER REPO FROM CLI OF SERVER
+pveam list local
+pveam update
+
+#Configuring my docker Template
+Install docker
+apt-get install docker.io -y
+apt-get install docker-compose y
+
+#Install Plex
+wget https://downloads.plex.tv/plex-media-server-new/1.30.0.6442-5070ad484/debian/plexmediaserver_1.30.0.6442-5070ad484_amd64.deb
+
+install smb for plex
