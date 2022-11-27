@@ -74,6 +74,9 @@ apt install chromium-browser -y
 printf "${YELOW}Installing Ansible latest....\n${NC}"
 sleep 5
 apt install ansible -y
+printf "${YELOW}Installing Screenhot app....\n${NC}"
+sleep 5
+sudo apt install shutter -y
 #Install Brave browser
 printf "${YELOW}Installing Brave browser....\n${NC}"
 sleep 5
