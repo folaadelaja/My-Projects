@@ -1,0 +1,4 @@
+#run splunk from the directory
+root@Splunk2:/opt/splunk/bin# sudo ./splunk start --accept y
+#autostart at boot
+sudo ./splunk enable boot-start
