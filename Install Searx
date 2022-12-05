@@ -1,0 +1,33 @@
+#Installing Searx search engine in docker
+
+git clone https://github.com/searxng/searxng-docker.git
+
+#If you are using a public server you can adjust the content of the .env file
+Now use nano to edit the file if you are using a public server and want to use a custom hostname or if you want to add an email so it can make you an SSL certificate. 
+
+#**If you do not have a custom hostname, put in your IP address in the "SEARX_HOSTNAME" field and leave the "LETSENCRYPT_EMAIL" commented out**
+
+
+nano .env
+
+
+#Once you are done exit the file using Ctrl+X hit "Y" and then "Enter"
+
+
+#Run this command to generate a super secret key
+
+sed -i "s|ultrasecretkey|$(openssl rand -hex 32) |g" searxng/settings.yml
+
+
+#Now to start SearX run this command
+
+sudo docker-compose up -d
+
+
+You should see the output below
+
+Once you see this output, you are good to start up Searx!
+
+sudo docker-compose up -d
+
+Now throw your IP address in to your browser's address bar and you should be able to access your Searx search engine!
