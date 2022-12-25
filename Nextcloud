@@ -1,0 +1,8 @@
+#Installing Nextcloud
+docker pull nextcloud
+mkdir -p /path/to/nextcloud/data
+docker run -d -p 8080:80 -v /path/to/nextcloud/data:/var/www/html nextcloud
+
+#
+This command will start the Nextcloud container and map the container's port 80 to port 8080 on the host system. You can access the Nextcloud web interface by visiting http://localhost:8080 in your web browser.
+
