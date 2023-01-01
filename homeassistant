@@ -1,0 +1,22 @@
+#docker compose up -d
+#docker restart homeassistant
+#Once the Home Assistant Container is running Home Assistant should be accessible using http://<host>:8123 (replace with the hostname or IP of the system). 
+#You can continue with onboarding.
+
+
+
+#copy the below docker-compose file
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /PATH_TO_YOUR_CONFIG:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
