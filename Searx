@@ -1,0 +1,18 @@
+#INSTALLING SEARX ON DEBIAN
+python3 --version
+
+git clone https://github.com/asciimoo/searx.git
+cd searx
+sudo apt install python3-pip -y
+pip3 install -r requirements.txt -y
+
+#Edit the " settings.yml " file in the searx directory  change the secret key to whatever you want also change the bind ip from 127.0.0.1  to the pc IP e.g 192.128.XXX save. then Cd ..
+
+/searx: nano settings.yml
+
+#Start the program with the following from the searx directory
+
+:~/searx$ python3 searx/webapp.py
+
+
+.194:8888
