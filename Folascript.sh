@@ -90,7 +90,7 @@ sudo apt install uget -y
 printf "${YELOW}Installing Git....\n${NC}"
 sudo apt install git -y
 printf "${YELOW}Installing PiP....\n${NC}"
-sudo apt install python3-pip 
+sudo apt install python3-pip -y
 printf "${YELOW}ALL APPLICATION HAS BEEN INSTALLED THANK YOU ...... 
 YOU CAN CLOSE THE SCREEN @ Fola | copyright 2022 \n${NC}"
 
