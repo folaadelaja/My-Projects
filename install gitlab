@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+  web:
+    image: 'gitlab/gitlab-ee:latest'
+    restart: always
+    hostname: gitlab.folahomelabs.xyz
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://gitlab.folahomelabs.xyz'
+        # Add any other gitlab.rb configuration here, each on its own line
+    ports:
+      - "192.168.128.189:8080:80"
+      - "192.168.128.189:443:443"
+      - "192.168.128.189:23:23"
+    volumes:
+      - '/var/docker/gitlab/config:/etc/gitlab'
+      - '/var/docker/gitlab/logs:/var/log/gitlab'
+      - '/var/docker/gitlab/data:/var/opt/gitlab'
+    shm_size: '256m'
