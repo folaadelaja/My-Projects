@@ -6,3 +6,8 @@ docker run -d -p 8080:80 -v /path/to/nextcloud/data:/var/www/html nextcloud
 #
 This command will start the Nextcloud container and map the container's port 80 to port 8080 on the host system. You can access the Nextcloud web interface by visiting http://localhost:8080 in your web browser.
 
+#HOW TO FIX THE NEXTCLOUD WEB URL ERROR SCREEN
+#Follow this simple steps.
+#1.sudo nextcloud.occ config:system:get trusted_domains (to see the current IP address and trusted domain)
+#2.sudo nextcloud.occ config:system:set trusted_domains 1 --value=your ip address or domain
+#3.Go to your web browser and use the new ip address
