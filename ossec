@@ -44,8 +44,14 @@ sudo apt-get install build-essential gcc make apache2 libapache2-mod-php7.4 php7
  
 var/ossec/bin/
 
-    Thanks for using the OSSEC HIDS.
-    If you have any question, suggestion or if you find any bug,
-    contact us at contact@ossec.net or using our public maillist at
-    ossec-list@ossec.net
-    ( http://www.ossec.net/main/support/ ).
+# WORK ARROUNF FOR ERROR ADDING AGENTS
+
+Confirm adding it?(y/n): y
+2021/04/12 13:50:43 manage_agents: ERROR: Cannot unlink /queue/rids/sender: No such file or directory
+Added.
+** Press ENTER to return to the main menu.
+
+#my work-around:
+touch /var/ossec/queue/rids/sender
+
+and then run again
