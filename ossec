@@ -39,7 +39,10 @@ sudo apt-get install build-essential gcc make apache2 libapache2-mod-php7.4 php7
       /var/ossec/bin/ossec-control stop
 
  - The configuration can be viewed or modified at /var/ossec/etc/ossec.conf
-
+ 
+ NOTE TO ADD AGENTS GO TO THIS DIRECTORY AND THE EXE  ./MANNAGE_AGENTS   
+ 
+var/ossec/bin/
 
     Thanks for using the OSSEC HIDS.
     If you have any question, suggestion or if you find any bug,
