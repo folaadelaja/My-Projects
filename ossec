@@ -20,7 +20,7 @@ cd /var/www/html/ossec
 systemctl restart apache2
 sudo apt-get update -y
 sudo apt-get install php -y
-sudo apt-get install build-essential gcc make apache2 libapache2-mod-php7.0 php7.0 php7.0-cli php7.0-common apache2-utils unzip wget sendmail inotify-tools -y
+sudo apt-get install build-essential gcc make apache2 libapache2-mod-php7.4 php7.4 php7.4-cli php7.4-common apache2-utils unzip wget sendmail inotify-tools -y
 
 
 
