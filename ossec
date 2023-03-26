@@ -1,3 +1,6 @@
+#copy the script and make it exe " chmod +x to perform one liner 
+
+#@/bin/bash
 sudo apt-get update -y
 sudo apt-get install apache2 -y
 sudo apt-get install build-essential -y
@@ -18,3 +21,28 @@ systemctl restart apache2
 sudo apt-get update -y
 sudo apt-get install php -y
 sudo apt-get install build-essential gcc make apache2 libapache2-mod-php7.0 php7.0 php7.0-cli php7.0-common apache2-utils unzip wget sendmail inotify-tools -y
+
+
+
+##################################################################################################################################################
+
+#After successful installation  you should see this.
+# - System is Debian (Ubuntu or derivative).
+ - Init script modified to start OSSEC HIDS during boot.
+
+ - Configuration finished properly.
+
+ - To start OSSEC HIDS:
+      /var/ossec/bin/ossec-control start
+
+ - To stop OSSEC HIDS:
+      /var/ossec/bin/ossec-control stop
+
+ - The configuration can be viewed or modified at /var/ossec/etc/ossec.conf
+
+
+    Thanks for using the OSSEC HIDS.
+    If you have any question, suggestion or if you find any bug,
+    contact us at contact@ossec.net or using our public maillist at
+    ossec-list@ossec.net
+    ( http://www.ossec.net/main/support/ ).
