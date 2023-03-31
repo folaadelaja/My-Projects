@@ -1,0 +1,60 @@
+Install Android on VMWare: Android-x86
+tags: VMWare, Android, Android-x86
+
+TOC
+
+    Install Android on VMWare: Android-x86
+        steps
+
+Ref 1: Install Android 8.1 Oreo in Virtual Machine: VMware and VirtualBox
+
+Ref 2: 解決安裝 ANDROID X86 啟動時黑畫面
+
+Ref 3: Android-x86.org
+
+    about Android-x86 project
+        This is a project to port Android open source project to x86 platform, formerly known as “patch hosting for android x86 support”.
+        licensed under Apache Public License 2.0. Some components are licensed under GNU General Public License (GPL) 2.0 or later.
+        The project is founded by Chih-Wei Huang (cwhuang in Taiwan) and Yi Sun (beyounn in U.S.). <Please donate if you can!>
+
+steps
+
+    download the iso file that suits you most on Android-x86.org
+        I use android-x86_64-8.1-r4.iso this time. It is Android 8.1(Oreo) for 64-bit windows. about 868 MB
+
+    create a new virtual machine on VMware
+        choose I will install the operating system later
+        Next, you will be required to select the guest operating system. Choose Other Linux 4.x
+        enter whatever name of your machine and the directory you’d like to save it.
+        Harddisk: either use the suggested size (8 GB), or any amount. (I use 24 GB this time)
+        Click Customize Hardware
+            RAM: suggested >= 1 GB (I use 16 GB this time because I’ve got plenty of RAM)
+            CPU: at least 1 core (I use 4)
+        Mount the iso file via setting CD/DVD (IDE)
+        select tab Display and enable Accelerate 3D Graphics
+        than close the setting and start the VM
+
+    installation of android on your vm
+        Advanced options...
+        then Auto_Installation
+        it will warn you such installation will erase the disk, just go because we’re working on a dedicated VM for it.
+        After successful installation, Disconnect the CD/DVD on the top-right tool bar of VMware. then choose Reboot.
+
+    deal with boot-up freeze issue
+        press e
+        press e
+        replace quiet to nomodeset xforcevesa
+        press enter
+        press b
+        as you see android system on, press Alt+F1
+        type in
+        mkdir /mnt/sda
+        mount /dev/block/sda1 /mnt/sda
+        vi /mnt/sda/grub/menu.lst
+        press i to edit, replace quiet to nomodeset xforcevesa
+        press Esc to return read-mode
+        press :w then press Enter
+        press :q then press Enter
+        type reboot then press Enter
+
+    You’re good to go!
