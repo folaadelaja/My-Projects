@@ -34,6 +34,9 @@ apt-get update
 pveam list local
 pveam update
 
+adding  drive to proxmox
+https://www.youtube.com/watch?v=XdBjWUBSU9g
+
 #Configuring my docker Template
 Install docker
 apt-get install docker.io -y
