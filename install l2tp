@@ -1,0 +1,15 @@
+To install the L2TP module on Ubuntu and Ubuntu-based Linux distributions, use the following PPA.
+
+$ sudo add-apt-repository ppa:nm-l2tp/network-manager-l2tp
+$ sudo apt-get update
+$ sudo apt-get install network-manager-l2tp  network-manager-l2tp-gnome
+
+On RHEL/CentOS and Fedora Linux, use the following dnf command to install L2TP module.
+
+# dnf install xl2tpd
+# dnf install NetworkManager-l2tp
+# dnf install NetworkManager-l2tp-gnome
+OR
+# yum install xl2tpd
+# yum install NetworkManager-l2tp
+# yum install NetworkManager-l2tp-gnome
