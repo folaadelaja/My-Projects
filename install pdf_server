@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    s-pdf:
+        ports:
+            - '8080:8080'
+        image: frooodle/s-pdf
+
+
+
+#https://hub.docker.com/r/frooodle/s-pdf
