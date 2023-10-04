@@ -1,0 +1,30 @@
+
+
+ls -l /var/lib/vz/template/iso
+
+Content type 	Subdir
+
+VM images
+	
+
+images/<VMID>/
+
+ISO images
+	
+
+template/iso/
+
+Container templates
+	
+
+template/cache/
+
+Backup files
+	
+
+dump/
+
+Snippets
+	
+
+snippets/
