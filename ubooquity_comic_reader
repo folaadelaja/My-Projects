@@ -1,0 +1,20 @@
+---
+version: "2.1"
+services:
+  ubooquity:
+    image: lscr.io/linuxserver/ubooquity:latest
+    container_name: ubooquity
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - MAXMEM=1024
+    volumes:
+      - /home/my_books/data/:/config
+      - /home/my_books/books/:/books
+      - /home/my_books/comics/:/comics
+      - /home/my_books/raw/files/:/files
+    ports:
+      - 2202:2202
+      - 2203:2203
+    restart: unless-stopped
