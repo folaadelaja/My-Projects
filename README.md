@@ -1,4 +1,4 @@
-This are service I deployed in my home lab
+These are services that I deployed in my home lab
 
 # Fola
 #This is just a simple script I created to install my custom applications on a fresh install ubuntu linux
