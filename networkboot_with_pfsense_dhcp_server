@@ -1,0 +1,71 @@
+Disclosures:
+
+    Nothing in this video was sponsored
+
+Don’t forget to ⭐ netboot.xyz on GitHub!
+Requirements
+
+    docker (and compose)
+    docker machine has a static IP
+    dhcp server & access to settings (or install your own)
+
+Docker Setup
+
+See this post on how to install docker and docker compose
+Install
+
+create folders netboot_xyz, netboot_xyz/assets, netboot_xyz/config
+
+mkdir netboot_xyz
+cd netboot_xyz
+mkdir assets
+mkdir config
+
+Copy yaml to server or portainer, etc
+Container Images
+
+linuxserver.io container image
+
+Parameter Docs
+
+---
+version: "2.1"
+services:
+  netbootxyz:
+    image: lscr.io/linuxserver/netbootxyz:latest
+    container_name: netbootxyz
+    environment:
+      - PUID=1000 #current user
+      - PGID=1000 #current group
+      - TZ=Etc/UTC
+      # - MENU_VERSION=1.9.9 #optional, sets menus version, unset uses latest
+      - PORT_RANGE=30000:30010 #optional
+      - SUBFOLDER=/ #optional
+    volumes:
+      - ./config:/config
+      - ./assets:/assets #optional
+    ports:
+      - 3000:3000
+      - 69:69/udp
+      - 8080:80 #optional
+    restart: unless-stopped
+
+
+############################################################################################################
+
+
+DHCP Configuration
+
+Since I cannot cover configuring every DHCP service out there, I will cover the basics. Fortunately linuxserver.io has many routers covered as well as the official netboot.xyz docs.
+
+UniFi UDM Pro / SE
+
+Settings > Network > Choose Network > DHCP Service Management > Show Options
+
+Here you’ll want to check “Network Boot” and fill in the server IP and the file name
+
+For me, it’s:
+
+Server IP: 192.168.10.125 Filename: netboot.xyz.kpxe (this is the default BIOS option)
+
+Save.
