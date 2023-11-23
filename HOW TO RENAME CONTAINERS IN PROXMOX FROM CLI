@@ -1,0 +1,3 @@
+#HOW TO RENAME CONTAINERS IN PROXMOX FROM CLI
+#EXAMPLE BELOW
+pct set 105 --hostname Searx-whoogle
