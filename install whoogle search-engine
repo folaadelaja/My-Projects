@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+    whoogle-search:
+        image: 'benbusby/whoogle-search:latest'
+        container_name: whoogle-search
+        restart: unless-stopped
+        ports:
+            - '5000:5000'
