@@ -1,0 +1,8 @@
+#UPGRADING PROXMOX 7TO8
+#USE THIS FROM THE SSH  WATCH  YOUTUBE VIDEO     https://www.youtube.com/watch?v=i5cmx-mcUVA
+pve7to8 --full | more
+• sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
+• cat /etc/apt/sources.list.d/pve-enterprise.list
+• cat /etc/apt/sources.list
+• apt update
+• apt dist-upgrade
