@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #NOTE AFTER DOWNLOADING THE SCRIPT MAKE IT EXECUTABLE BY RUNING COMMAND  [ chmod +x Folascript.sh  then run script   with sudo  ./Folascript.sh ]
 printf "${YELOW}
 .......Custom script to update, upgrade and install all applications on a fresh installed debian.......
