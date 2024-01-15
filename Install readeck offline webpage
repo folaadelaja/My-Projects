@@ -1,0 +1,2 @@
+#Install readeck offline webpage reader in docker
+docker run  --restart always -d -p 8000:8000 -v readeck-data:/readeck codeberg.org/readeck/readeck:latest
