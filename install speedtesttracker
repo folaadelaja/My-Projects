@@ -1,24 +1,12 @@
-
 version: '3.3'
 services:
     speedtest:
-        container_name: speedtest
-        image: henrywhitaker3/speedtest-tracker
-        ports:
-            - 8765:80
-        volumes:
-            - /path/to/data:/config
-        environment:
-            - TZ=
-            - PGID=
-            - PUID=
-            - OOKLA_EULA_GDPR=true
-        logging:
-            driver: "json-file"
-            options:
-                max-file: "10"
-                max-size: "200k"
         restart: unless-stopped
+        container_name: openspeedtest
+        ports:
+            - '3000:3000'
+            - '3001:3001'
+        image: openspeedtest/latest
 
 
 
@@ -26,5 +14,3 @@ services:
 
 
 
-#http://192.168.128.203:8765/
-https://hub.docker.com/r/henrywhitaker3/speedtest-tracker
