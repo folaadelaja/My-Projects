@@ -1,6 +1,7 @@
 Ubuntu 20.04.6    upgrade Ubuntu 22.04.4 LTS
 
-
+#FIX TO ERROR WHEN UPPGRADING  REMOVE ALL THE FILES IN THIS DIRECTORY
+#rm /var/lib/dpkg/updates/*
 
 apt update
 apt upgrade -y
@@ -9,7 +10,7 @@ do-release-upgrade -y
 
 
 
-apt update && apt upgrade -y && apt install update-manager-core && do-release-upgrade -y
+apt update && apt upgrade -y && apt install update-manager-core && do-release-upgrade
 
 #Install the Upgrade Tool: Make sure the update-manager-core package is installed. If not, install it:
 
