@@ -2,8 +2,14 @@ Ubuntu 20.04.6    upgrade Ubuntu 22.04.4 LTS
 
 
 
-sudo apt update
-sudo apt upgrade
+apt update
+apt upgrade -y
+apt install update-manager-core
+do-release-upgrade -y
+
+
+
+apt update && apt upgrade -y && apt install update-manager-core && do-release-upgrade -y
 
 #Install the Upgrade Tool: Make sure the update-manager-core package is installed. If not, install it:
 
