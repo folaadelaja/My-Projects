@@ -37,6 +37,58 @@ pveam update
 adding  drive to proxmox
 https://www.youtube.com/watch?v=XdBjWUBSU9g
 
+To mount a USB drive containing data to a Proxmox VE server, follow these steps:
+
+Run the following command to list all connected drives and identify the USB drive:
+```sh
+lsblk
+```
+Look for your USB drive in the output. It will typically be something like `/dev/sdX` (where `X` is a letter like `a`, `b`, etc.).
+
+### 3. Create a Mount Point
+
+Create a directory where you want to mount the USB drive. For example:
+```sh
+mkdir /mnt/usb
+```
+
+### 4. Mount the USB Drive
+
+Mount the USB drive to the directory you created. Replace `/dev/sdX1` with the appropriate device identifier for your USB drive (the partition number might be different):
+```sh
+mount /dev/sdX1 /mnt/usb
+```
+
+### 5. Verify the Mount
+
+Check that the USB drive is mounted correctly by listing the contents of the mount point:
+```sh
+ls /mnt/usb
+```
+You should see the files and directories from your USB drive.
+
+### 6. Add the USB Drive to Proxmox Storage (Optional)
+
+If you want Proxmox to recognize the USB drive as a storage location, you can add it via the Proxmox web interface:
+
+1. Go to the Proxmox web interface.
+2. Navigate to **Datacenter** -> **Storage**.
+3. Click **Add** and choose the storage type (Directory or other appropriate type).
+4. Configure the storage by specifying the mount point (`/mnt/usb`) and other required settings.
+5. Click **Add** to save the storage configuration.
+
+### 7. Unmount the USB Drive (When Finished)
+
+When you are done using the USB drive, unmount it with the following command:
+```sh
+umount /mnt/usb
+```
+You can then safely remove the USB drive from the server.
+
+By following these steps, you can mount and use a USB drive containing data on your Proxmox VE server.
+
+
+
 #Configuring my docker Template
 Install docker
 apt-get install docker.io -y
