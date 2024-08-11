@@ -1,0 +1,19 @@
+LXC commands
+
+pct list
+
+pct stop
+
+pct shutdown --forceStop 1
+
+pct kill
+
+pct destroy
+
+cd /etc/pve/lxc
+
+VM
+
+qm destroy 116
+
+/mnt/usb-backup/dump
