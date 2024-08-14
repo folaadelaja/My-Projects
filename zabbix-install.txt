@@ -1,1 +1,135 @@
+Install Zabbix 6.4 On Ubuntu Server 22.04.1
+In Under 10 Minutes
+Posted on
+This guide will assume you have a working Ubuntu Server already installed with SSH enabled and
+ready to go. If you need help with installing Ubuntu server, refer here
+If you’re more visual and prefer to watch an installation walk through, refer here
+Aside from that, lets jump straight into installing Zabbix 6.4 PRE-RELEASE on top of Ubuntu
+Server 22.04.1 which as the time of this writing, is latest and greatest versions of both ->
+1. Install ubuntu server 22.04.1 and enable ssh
+2. SSH to your Ubuntu server to run install commands
+3. Install and configure Zabbix for your platform
+Run the following cmds:
+sudo wget https://repo.zabbix.com/zabbix/6.3/ubuntu/pool/main/z/zabbix-release/
+zabbix-release_6.3-3%2Bubuntu22.04_all.deb
+sudo dpkg -i zabbix-release_6.3-3+ubuntu22.04_all.deb
+sudo apt update
+sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf
+zabbix-sql-scripts zabbix-agent
+4. Install sql server
+sudo apt-get install mysql-server
+sudo systemctl start mysql
+5. Create initial database
+sudo mysql
+create database zabbix character set utf8mb4 collate utf8mb4_bin;
+create user zabbix@localhost identified by 'password';
+grant all privileges on zabbix.* to zabbix@localhost;
+set global log_bin_trust_function_creators = 1;
+quit;
+6. On Zabbix server host import initial schema and data. You will be prompted to enter your newly
+created password.
+sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-
+character-set=utf8mb4 -uzabbix -p zabbix
+7. Disable log_bin_trust_function_creators option after importing database schema.
+sudo mysql
+set global log_bin_trust_function_creators = 0;
+quit;
+8. Configure the database for Zabbix server
+Edit file /etc/zabbix/zabbix_server.conf and set the DB password with ->
+sudo vim /etc/zabbix/zabbix_server.conf
+9. Start Zabbix server and agent processes
+sudo systemctl restart zabbix-server zabbix-agent apache2
+sudo systemctl enable zabbix-server zabbix-agent apache2
+10. Open Zabbix UI web page and proceed with web ui config (should be self explanatory)
+The default URL for Zabbix UI when using Apache web server is http://host/zabbix
+Video walk through ->
+http://192.168.128.133/zabbix/
+default; Admin/zabbix
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Adding a Linux Agent to a Zabbix Server
+
+Step 1: Install the Zabbix Agent on the Linux Machine
+-----------------------------------------------------
+1. Update the Package List:
+   sudo apt-get update
+
+2. Install the Zabbix Agent:
+   For Debian-based systems (like Ubuntu):
+   sudo apt-get install zabbix-agent
+
+   For RHEL/CentOS systems:
+   sudo yum install zabbix-agent
+
+3. Start and Enable the Zabbix Agent Service:
+   sudo systemctl start zabbix-agent
+   sudo systemctl enable zabbix-agent
+
+Step 2: Configure the Zabbix Agent
+-----------------------------------
+1. Edit the Zabbix Agent Configuration File:
+   Open the configuration file using a text editor:
+   sudo nano /etc/zabbix/zabbix_agentd.conf
+
+2. Set the Zabbix Server IP:
+   Find the line Server= and set it to the IP address of your Zabbix server:
+   Server=ZABBIX_SERVER_IP
+   Replace ZABBIX_SERVER_IP with the actual IP address of your Zabbix server.
+
+3. Set the Zabbix Hostname:
+   Find the line Hostname= and set it to the hostname of the agent machine:
+   Hostname=AGENT_HOSTNAME
+   Replace AGENT_HOSTNAME with the hostname of the Linux machine you're adding.
+
+4. Restart the Zabbix Agent:
+   After making changes, restart the Zabbix agent:
+   sudo systemctl restart zabbix-agent
+
+Step 3: Add the Host to the Zabbix Server
+------------------------------------------
+1. Log in to the Zabbix Web Interface:
+   Open your web browser and go to the Zabbix server's IP address. Log in with your admin credentials.
+
+2. Navigate to Configuration → Hosts:
+   In the Zabbix interface, go to Configuration → Hosts.
+
+3. Add a New Host:
+   - Click Create Host.
+   - Enter the Hostname: This should match the Hostname you configured in the agent's configuration file.
+   - Set the Visible Name: (Optional) This is how the host will be displayed in the Zabbix interface.
+   - Enter the IP Address: Use the IP address of the Linux machine where the agent is installed.
+   - Select a Group: Choose an appropriate group or create a new one.
+   - Add a Template: Click on Templates and add a template that matches your monitoring requirements, such as Template OS Linux by Zabbix agent.
+
+4. Save the Configuration:
+   Click Add to save the new host.
+
+Step 4: Verify the Host is Being Monitored
+------------------------------------------
+1. Check the Host Status:
+   - Go to Monitoring → Latest data or Monitoring → Hosts.
+   - Verify that data from the new host is being received and that it shows as "Monitored" in the Zabbix interface.
+
+2. Troubleshoot if Necessary:
+   - Ensure the Zabbix agent service is running on the host.
+   - Verify network connectivity between the Zabbix server and the agent.
+   - Check the Zabbix server and agent logs for any errors.
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#INSTALLING LINUX AGENT
+
+apt-get install zabbix-agent
+apt --fix-broken install
+apt-get install zabbix-agent
+nano /etc/zabbix/zabbix_agentd.conf
+systemctl start zabbix-agent
+systemctl enable zabbix-agent
+#PUT THE SERVER IP IN CONF FILE BELOW
+nano /etc/zabbix/zabbix_agentd.conf
+systemctl restart zabbix-agent
