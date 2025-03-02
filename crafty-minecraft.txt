@@ -28,3 +28,19 @@ services:
         to get  creds 
         docker exec -it crafty_container bash
 root@be8258272f35:/crafty# cat app/config/default-creds.txt
+
+
+///////////////////////////////////////////////////////////////////////
+
+fix cloudflare script issue
+
+Force Reinstall System Packages:
+
+Try reinstalling dpkg and libc-bin:
+
+apt update
+apt install --reinstall dpkg libc-bin
+Manually Set PATH Variable:
+
+Temporarily set the correct PATH:
+export PATH=/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin
