@@ -1,6 +1,6 @@
 https://documentation.wazuh.com/current/deployment-options/docker/wazuh-container.html#change-pwd-existing-usr
 
-git clone https://github.com/wazuh/wazuh-docker.git -b v4.8.1
+git clone https://github.com/wazuh/wazuh-docker.git -b v4.11.0
 #cd to single node then run to generate cert
 docker-compose -f generate-indexer-certs.yml run --rm generator
 docker-compose -d
