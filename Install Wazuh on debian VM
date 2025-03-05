@@ -5,6 +5,9 @@ git clone https://github.com/wazuh/wazuh-docker.git -b v4.11.0
 docker-compose -f generate-indexer-certs.yml run --rm generator
 docker-compose up -d
 
-
-
 https://documentation.wazuh.com/current/deployment-options/docker/wazuh-container.html
+
+
+#WAZUH ON DEBIAN ONE LINER SCRIPT PLEASE CHANGE VERSION OF WAZUH TO LATEST WHEN NECESSARY CURRENT IS VERSION 4.11
+
+curl -sO https://packages.wazuh.com/4.11/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
