@@ -11,3 +11,77 @@ https://documentation.wazuh.com/current/deployment-options/docker/wazuh-containe
 #WAZUH ON DEBIAN ONE LINER SCRIPT PLEASE CHANGE VERSION OF WAZUH TO LATEST WHEN NECESSARY CURRENT IS VERSION 4.11
 
 curl -sO https://packages.wazuh.com/4.11/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
+
+
+///////////////////////////////////////////////////////////////////////////////////
+
+#RECONMEDED FILE MONITORING SCRIPT FOR LINUX AND WINDOWS PUT THIS IN THE CONFIG FILE OF AGENT THEN RESTART THE AGENT OR SYSTEM PAST ANY WHERE BEFORE /OSSEC CONFIG
+sudo nano /var/ossec/etc/ossec.conf
+systemctl restart wazuh-agent
+
+
+
+WINDOWS
+/////////////////////////////////////////////////////////////////////////
+<syscheck>
+  <!-- Windows System Files -->
+  <directories>C:\Windows\System32</directories>
+  <directories>C:\Windows\SysWOW64</directories>
+
+  <!-- Windows Registry Hives -->
+  <windows_registry>HKEY_LOCAL_MACHINE\Software</windows_registry>
+  <windows_registry>HKEY_LOCAL_MACHINE\SYSTEM</windows_registry>
+  <windows_registry>HKEY_LOCAL_MACHINE\SECURITY</windows_registry>
+
+  <!-- Users Folder -->
+  <directories>C:\Users</directories>
+
+  <!-- Custom Application Logs -->
+  <directories>C:\Program Files\MyApp</directories>
+
+  <!-- Task Scheduler -->
+  <directories>C:\Windows\Tasks</directories>
+</syscheck>
+//////////////////////////////////////////////////////////////////////
+LINUX
+ <syscheck>
+  <!-- System Binaries -->
+  <directories recurse="yes">/bin</directories>
+  <directories recurse="yes">/sbin</directories>
+  <directories recurse="yes">/usr/bin</directories>
+  <directories recurse="yes">/usr/sbin</directories>
+
+  <!-- Configuration Files -->
+  <directories recurse="yes">/etc</directories>
+
+  <!-- User Home Directories -->
+  <directories recurse="yes">/home</directories>
+
+  <!-- Web Servers -->
+  <directories recurse="yes">/var/www</directories>
+
+  <!-- Logs -->
+  <directories recurse="yes">/var/log</directories>
+
+  <!-- Boot Configuration -->
+  <directories recurse="yes">/boot</directories>
+
+  <!-- SSH Configurations -->
+  <directories>/etc/ssh</directories>
+
+  <!-- Systemd and Cron Jobs -->
+  <directories>/etc/systemd</directories>
+  <directories>/etc/cron.d</directories>
+  <directories>/etc/cron.daily</directories>
+  <directories>/etc/cron.weekly</directories>
+  <directories>/etc/cron.hourly</directories>
+
+  <!-- Docker Configurations (if applicable) -->
+  <directories>/etc/docker</directories>
+
+  <!-- Custom App Folder -->
+  <directories>/opt/myapp</directories>
+  <directories>/root/.ssh</directories>
+<directories>/home/*/.ssh</directories>
+</syscheck>
+
