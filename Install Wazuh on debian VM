@@ -17,7 +17,13 @@ curl -sO https://packages.wazuh.com/4.11/wazuh-install.sh && sudo bash ./wazuh-i
 
 #RECONMEDED FILE MONITORING SCRIPT FOR LINUX AND WINDOWS PUT THIS IN THE CONFIG FILE OF AGENT THEN RESTART THE AGENT OR SYSTEM PAST ANY WHERE BEFORE /OSSEC CONFIG
 sudo nano /var/ossec/etc/ossec.conf
+
+#to restart agent
 systemctl restart wazuh-agent
+
+#To restart manager (wazuh server)
+sudo systemctl restart wazuh-manager
+
 
 
 
