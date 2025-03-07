@@ -11,6 +11,31 @@ https://documentation.wazuh.com/current/deployment-options/docker/wazuh-containe
 #WAZUH ON DEBIAN ONE LINER SCRIPT PLEASE CHANGE VERSION OF WAZUH TO LATEST WHEN NECESSARY CURRENT IS VERSION 4.11
 
 curl -sO https://packages.wazuh.com/4.11/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#error when adding agent on debian
+
+#dpkg Error 
+
+dpkg: warning: 'ldconfig' not found in PATH or not executable
+dpkg: warning: 'start-stop-daemon' not found in PATH or not executable
+dpkg: error: 2 expected programs not found in PATH or not executable
+Note: root's PATH should usually contain /usr/local/sbin, /usr/sbin and /sbin
+
+FIX:
+echo 'export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin' >> ~/.bashrc
+source ~/.bashrc
+
+
+#Cert error
+32, 108.156.144.59, ...
+Connecting to packages.wazuh.com (packages.wazuh.com)|108.156.144.7|:443... connected.
+ERROR: The certificate of ‘packages.wazuh.com’ is not trusted.
+ERROR: The certificate of ‘packages.wazuh.com’ doesn't have a known issuer.
+
+#FIX
+sudo apt remove --purge ca-certificates
+sudo apt install ca-certificates
+sudo update-ca-certificates --fresh
 
 
 ///////////////////////////////////////////////////////////////////////////////////
