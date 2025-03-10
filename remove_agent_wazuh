@@ -1,0 +1,13 @@
+How remove an agent showing up as GSM on Wazuh, you can use the following steps:
+
+    Open a terminal or SSH connection to your Wazuh manager server.
+
+    List all registered agents to find the ID of the GSM agent you want to remove:
+
+bash
+/var/ossec/bin/manage_agents -l
+
+    Once you have identified the agent ID, remove it using the following command:
+
+bash
+/var/ossec/bin/manage_agents -r <AGENT_ID>
