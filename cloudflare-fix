@@ -1,0 +1,39 @@
+fix cloudflare error
+
+
+aCJ9
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 17.6M  100 17.6M    0     0  12.4M      0  0:00:01  0:00:01 --:--:-- 12.4M
+dpkg: warning: 'ldconfig' not found in PATH or not executable
+dpkg: warning: 'start-stop-daemon' not found in PATH or not executable
+dpkg: error: 2 expected programs not found in PATH or not executable
+Note: root's PATH should usually contain /usr/local/sbin, /usr/sbin and /sbin
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+  FIX BELOW
+
+
+Check If /sbin and /usr/sbin Are in Your PATH
+To check:
+
+bash
+Copy
+Edit
+echo $PATH
+If /usr/local/sbin, /usr/sbin, or /sbin are missing, temporarily add them:
+
+bash
+Copy
+Edit
+export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
+To make it permanent, add this line to ~/.bashrc or ~/.profile:
+
+bash
+Copy
+Edit
+echo 'export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin' >> ~/.bashrc
+source ~/.bashrc
