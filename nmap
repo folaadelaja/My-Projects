@@ -1,0 +1,1 @@
+sudo nmap -sS -sU --top-ports 100 -T4 --open -iL targets.txt -oN Scan_result.txt
